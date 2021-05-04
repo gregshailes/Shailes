@@ -1,0 +1,99 @@
+div.modal {
+  z-index: 100;
+}
+
+div.confirm {
+  z-index: 101;
+  text-align: center;
+  &--content {
+    padding: 2em;
+  }
+  &--buttons {
+    padding-bottom: 1em;
+    a {
+      background-color: $button_background;
+      opacity: 0.8;
+      color: $button_color;
+      display: inline-block;
+      text-decoration: none;
+      padding: 0.6em 1.2em;
+      margin-left: 0px;
+      text-align: center;
+      line-height: 1em;
+      vertical-align: middle;
+      border: none;
+      border-radius: 0.4em;
+      transition: opacity 0.5s;
+      font-size: 1em;
+      font-weight: normal;
+      font-family: $base_font;
+      &:hover {
+        opacity: 1;
+      }
+      &:visited {
+        color: $button_color;
+      }
+    }
+  }
+}
+
+div.modal, div.confirm {
+  position: fixed;
+  top: 0; bottom: 0;
+  left: 0; right: 0;
+  transition: opacity 3s, backdrop-filter 0s;
+  opacity: 0;
+  display:none;
+  pointer-events: none;
+
+  &--background {
+    background-color: rgba(0,0,0,0.3);
+    backdrop-filter: blur(3px);
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 0; right: 0;
+  }
+
+  &--form {
+
+    h1 { display: none; }
+
+    position: absolute;
+    background-color: $modal_background;
+
+    box-shadow: 0px 8px 32px rgba(0,0,0,0.5);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 240px;
+    border-radius: 8px;
+    overflow: hidden;
+    @media (max-width: $break_width) {
+      width: 90%;
+    }
+    &:before {
+      width: 100%;
+      display: block;
+      height: 6px;
+      background-color: $modal_header;
+      content: ' ';
+    }
+  }
+  &--close {
+    position: absolute;
+    display: block;
+    top: 6px;
+    right: 6px;
+    height: 18px;
+    font-size: 15px;
+    @media (max-width: $break_width) {
+      height: 36px;
+      font-size: 30px;
+    }
+  }
+ &.active {
+    opacity: 1;
+    pointer-events: unset;
+    display: block;
+  }
+}

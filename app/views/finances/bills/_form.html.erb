@@ -1,0 +1,17 @@
+<%= f.error_notification %>
+
+<div class="form-inputs">
+  <%= f.input :description, autofocus: true, placeholder: 'New Bill' %>
+  <%= f.input :amount, as: :decimal %>
+  <%= f.input :deposit, as: :boolean, wrapper: :input_checkbox %>
+  <%= f.input :next_due_at, as: :datepicker %>
+  <%= f.input :interval, as: :integer %>
+  <%= f.input :frequency, collection: ['Days', 'Weeks', 'Months'], include_blank: false, wrapper: :input_select %>
+</div>
+
+<div class="form-actions">
+  <% if @bill %>
+    <%= link_to 'Delete Bill', finances_account_bill_path(@account, @bill), method: :delete, data: { confirmation_message: 'Are you sure you want to remove this bill?' }, class: 'command-button confirmation' %>
+  <% end %>
+  <%= f.button :submit, 'Save Bill', class: "command-button" %>
+</div>

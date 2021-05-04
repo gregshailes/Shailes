@@ -1,0 +1,7 @@
+<h1>
+  <span><%= @account.name %></span>Edit Bill
+</h1>
+
+<%= simple_form_for @bill_form, url: finances_account_bill_path(@account, @bill), method: :patch do |f| %>
+  <%= render partial: 'form', bill: @bill, locals: {f: f} %>
+<% end %>

@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<h1>
+  <span><%= @account.name %></span>Transactions
+</h1>
+<% if @transactions.any? || @upcoming_bills.any? %>
+  <div class='transactions-table'>
+
+    <div class='table-row-header'>
+      <span>Date</span>
+      <span>Description</span>
+      <span>Amount</span>
+      <span>Balance</span>
+    </div>
+
+    <% unless @include_reconciled %>
+      <div class="table-row-header">
+        <span></span>
+        <span>Reconciled Total</span>
+        <span></span>
+        <span class="amount"><%= @account.reconciled_balance + @account.opening_balance %></span>
+      </div>
+    <% end %>
+
+    <% @transactions.each do |transaction| %>
+      <% tx = transaction[:transaction] %>
+      <% if transaction[:bill_id].nil? %>
+        <% if tx.account_id == @account.id %>
+          <% @balance += tx.amount %>
+        <% else %>
+          <% @balance -= tx.amount %>
+        <% end %>
+        <%= link_to edit_finances_account_transaction_path(@account, tx), class: "modal--link table-row#{tx.reconciled ? ' reconciled' : ''}" do %>
+          <span class="date"><%= tx.transaction_date.strftime('%d/%m/%Y') %></span>
+          <span class="description"><%= tx.description %></span>
+          <span class="amount<%= ' deposit' if tx.amount > 0 %>"><%= tx.amount.abs %></span>
+          <span class="balance"><%= @balance %></span>
+        <% end %>
+      <% else %>
+        <% @balance += tx.amount %>
+        <%= link_to finances_account_bill_record_payment_path(@account, transaction[:bill_id]), class: 'modal--link table-row upcoming-bill' do %>
+          <span class="date"><%= tx.transaction_date.strftime('%d/%m/%Y') %></span>
+          <span class="description"><%= tx.description %></span>
+          <span class="amount <%= 'deposit' if tx.amount > 0 %>"><%= tx.amount.abs %></span>
+          <span class="balance"><%= @balance %></span>
+        <% end %>
+      <% end %>
+    <% end %>
+
+  </div>
+<% else %>
+  <p>There are currently no transactions to show for this account.</p>
+<% end %>
+
+<p>
+  <% if @include_reconciled %>
+    <%= link_to 'Show Reconciled', @account, class: "ticked-checkbox" %>
+  <% else %>
+    <%= link_to 'Show Reconciled', finances_account_path(@account) + "?full=1", class: "unticked-checkbox" %>
+  <% end %>
+</p>
+<p>
+  <%= link_to 'Export Transactions', export_finances_account_transactions_path(@account) %>
+</p>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= csrf_meta_tags %>
+    <title>Finances</title>
+    <%= favicon_link_tag 'favicon.png' %>
+    <meta name="viewport" content="width=300 initial-scale=1">
+    <%= stylesheet_link_tag 'finances', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'confirmation' %>
+  </head>
+
+  <body class='finances'>
+    <div class='mobile-header'>
+      <a href='#' class='show-menu command-button'><i class="fa fa-arrow-right"></i></a><%=
+      if @account && @account.persisted?
+        link_to 'Add Transaction', new_finances_account_transaction_path(@account), class: 'command-button modal--link'
+      else
+        link_to 'Add Account', new_finances_account_path, class: 'command-button'
+      end -%>
+    </div>
+    <aside class='main-menu'>
+      <nav class='menu'>
+        <%= render partial: 'finances/menu' %>
+      </nav>
+    </aside>
+    <div class='page'>
+      <main>
+        <%= yield %>
+      </main>
+      <%= render 'partials/modal' %>
+      <%= render 'partials/confirm' %>
+      <div class='footer'>
+        <%= render partial: 'finances/footer' %>
+      </div>
+    </div>
+  </body>
+</html>
