@@ -14,9 +14,6 @@ Devise.setup do |config|
   # with default "from" parameter.
   config.mailer_sender = 'admin@greg.com'
 
-  # Omniauth - facebook params
-  config.omniauth :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'], callback_url: ENV['FACEBOOK_LOGIN_CALLBACK_URL']
-
   config.omniauth :openid_connect, {
     name: :google,
     discovery: true,
