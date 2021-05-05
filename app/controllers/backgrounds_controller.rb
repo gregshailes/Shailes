@@ -3,7 +3,6 @@
   def random
     path = File.join('img', 'background', params['for'])
     
-    binding.pry
     directory = Rails.root.join('public', path)
     unless File.directory?(directory)
       raise ActionController::RoutingError.new("Background directory '#{params['for']}' not found")
