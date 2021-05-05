@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   get 'work', to: 'homepage#work_menu'
   get 'finances', to: 'finances/accounts#index'
 
+  get 'background/:for', to: 'backgrounds#random'
+
   namespace :finances do
     resources :accounts do
       resources :transactions do
