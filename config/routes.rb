@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'home', to: 'homepage#personal_menu'
   get 'work', to: 'homepage#work_menu'
   get 'finances', to: 'finances/accounts#index'
+  get 'diary', to: 'diary/entries#index'
 
   get 'background/:for', to: 'backgrounds#random'
 
@@ -24,6 +25,10 @@ Rails.application.routes.draw do
       end
       resource :transfer, only: [:new, :create]
     end
+  end
+
+  namespace :diary do
+    resources :entries
   end
 
 end

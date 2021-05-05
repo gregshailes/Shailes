@@ -1,0 +1,15 @@
+<div class='new-entry-menu-item'>
+  <%= link_to 'Add Entry', new_diary_entry_path %>
+</div>
+<ul class='menu'>
+  <% if @entries.any? %>
+    <% @entries.each do |entry| %>
+      <li class="<%= 'selected' if @entry == entry %>">
+        <a href="<%= diary_entry_path(entry) %>">
+          <%= entry.title %><br>
+          <span><%= entry.entry_date %></span>
+        </a>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

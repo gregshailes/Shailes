@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%= csrf_meta_tags %>
+    <title>Diary</title>
+    <%= favicon_link_tag 'favicon.png' %>
+    <meta name="viewport" content="width=500">
+    <%= stylesheet_link_tag 'diary', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'confirmation' %>
+  </head>
+
+  <body class='<%= params[:controller] %>'>
+    <div class='mobile-header'>
+      <a href='#' class='show-menu command-button'><i class="fa fa-bars"></i></a><%= link_to 'Add Entry', new_diary_entry_path, class: 'command-button' %>
+    </div>
+    <aside class='main-menu'>
+      <nav class='menu'>
+        <%= render partial: 'menu' %>
+      </nav>
+    </aside>
+    <div class='page'>
+      <main>
+        <%= yield %>
+      </main>
+      <%= render 'partials/confirm' %>
+      <div class='footer'>
+        <%= render partial: 'footer' %>
+      </div>
+    </div>
+  </body>
+</html>
