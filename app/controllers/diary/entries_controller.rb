@@ -3,6 +3,8 @@ class Diary::EntriesController < ApplicationController
   before_action :authenticate_user!
   before_action :get_entries
 
+  layout 'diary'
+
   def index
     @latest = current_user.diary_entries.order(created_at: :desc).first
   end
