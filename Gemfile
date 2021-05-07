@@ -64,6 +64,13 @@ group :test do
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
+
+  ## BEGIN: Custom Gems required by this project
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
+  gem 'rexml'
+  ## END: Custom Gems required by this project
+
 end
 
 group :production do
