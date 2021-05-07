@@ -1,7 +1,7 @@
-@import "_imports/base";
-@import "_imports/colours/finances";
-@import "_imports/app_styles";
-@import "_imports/modals";
+@import "imports/base";
+@import "imports/colours/finances";
+@import "imports/app_styles";
+@import "imports/modals";
 
 html {
   font-size: 14px;
@@ -33,7 +33,7 @@ a {
     padding: 0 0.5em;
     &:before {
       font-family: FontAwesome;
-      content: '\f046';
+      content: "\f046";
       padding-right: 0.5em;
       color: $rule_color;
     }
@@ -42,7 +42,7 @@ a {
     padding: 0 0.5em;
     &:before {
       font-family: FontAwesome;
-      content: '\f096';
+      content: "\f096";
       padding-right: 0.5em;
       color: $rule_color;
     }
@@ -104,7 +104,7 @@ form.simple_form {
       top: 50%;
       right: 8px;
       transform: translateY(-50%);
-      font-family: 'FontAwesome';
+      font-family: "FontAwesome";
       font-size: 24px !important;
       content: "\f13a";
       color: $rule_color;
@@ -136,7 +136,7 @@ form.simple_form {
           position: absolute;
           top: 9px;
           left: 10px;
-          font-family: 'FontAwesome';
+          font-family: "FontAwesome";
           font-size: 24px !important;
           content: "\f10c";
           opacity: 1;
@@ -190,7 +190,7 @@ div.transactions-table {
     &.amount, &.balance {
       text-align: right;
       &:before {
-        content: '£';
+        content: "£";
         color: $menu_background;
       }
     }

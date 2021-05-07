@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+  devise_for :users
 
-  root to: 'homepage#personal_menu'
+  root to: 'homepage#index'
 
-  get 'welcome', to: 'homepage#landing'
-  get 'homepage/denied', to: 'homepage#denied'
   get 'home', to: 'homepage#personal_menu'
   get 'work', to: 'homepage#work_menu'
   get 'finances', to: 'finances/accounts#index'

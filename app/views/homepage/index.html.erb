@@ -1,0 +1,21 @@
+<% if current_user %>
+  <h2>
+    Hello, <%= current_user.display_name %>
+  </h2>
+  <p>
+    <% if current_user.is_greg? %>
+      <%= link_to 'Work Site', work_path %>
+      |
+      <%= link_to 'Personal Site', home_path %>
+    <% else %>
+      Still nothing to see here, I'm afraid.
+    <% end %>
+  </p>
+  <div>
+    <%= link_to 'Sign out', destroy_user_session_path, method: 'DELETE' %>
+  </div>
+<% else %>
+  <h2>Greg's personal web site</h2>
+  <p>There's nothing here for the general public yet.</p>
+  <%= link_to 'Log in', new_user_session_path %>
+<% end %>

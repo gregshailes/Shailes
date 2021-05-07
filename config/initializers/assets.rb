@@ -15,4 +15,3 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 
 # Rails.application.config.assets.precompile += %w( .css )
 
-Rails.application.config.assets.precompile += %w( devise/registrations.css devise/sessions.css )

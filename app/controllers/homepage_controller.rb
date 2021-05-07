@@ -6,12 +6,8 @@ class HomepageController < ApplicationController
   before_action :set_vars
   before_action :authenticate_admin!, only: [:root, :personal_menu, :work_menu]
 
-  def root
-    if is_greg?
-      render :personal_menu
-    else
-      render :index
-    end
+  def index
+    render :index, layout: 'devise'
   end
 
 

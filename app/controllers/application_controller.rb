@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_admin!
     unless is_admin?
-      redirect_to welcome_path, notice: 'You need to sign in.'
+      redirect_to new_user_session_path
     end
   end
 

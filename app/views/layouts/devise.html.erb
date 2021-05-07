@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= @title %></title>
+    <title>Welcome</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= favicon_link_tag 'favicon.png' %>
-    <%= stylesheet_link_tag "homepage_#{@stylesheet}", media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'out_application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div class='welcome'>
+      <%= yield %>
+    </div>
   </body>
 </html>
