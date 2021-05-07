@@ -3,7 +3,7 @@ class HomepageController < ApplicationController
 
   layout 'homepage'
 
-  before_action :set_which_page
+  before_action :set_vars
   before_action :authenticate_admin!, only: [:root, :personal_menu, :work_menu]
 
   def root
@@ -18,11 +18,13 @@ class HomepageController < ApplicationController
   private
 
 
-  def set_which_page
+  def set_vars
     if params[:action] == 'work_menu'
-      @which_page = 'work_menu'
+      @stylesheet = 'work_menu'
+      @title = 'Work'
     else
-      @which_page = 'personal_menu'
+      @stylesheet = 'personal_menu'
+      @title = 'Home'
     end
   end
 
