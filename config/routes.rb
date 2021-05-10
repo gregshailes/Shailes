@@ -6,12 +6,13 @@ Rails.application.routes.draw do
 
   get 'home', to: 'homepage#personal_menu'
   get 'work', to: 'homepage#work_menu'
-  get 'finances', to: 'finances/accounts#index'
-  get 'diary', to: 'diary/entries#index'
 
   get 'background/:for', to: 'backgrounds#random'
 
+  get 'decision', to: 'decisions#new'
+
   namespace :finances do
+    root to: 'finances/accounts#index'
     resources :accounts do
       resources :transactions do
         collection do
@@ -26,6 +27,7 @@ Rails.application.routes.draw do
   end
 
   namespace :diary do
+    root to: 'diary/entries#index'
     resources :entries
   end
 
