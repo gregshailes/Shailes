@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   end
 
   namespace :diary do
-    root to: 'diary/entries#index'
+    root to: 'entries#index'
     resources :entries
   end
 
