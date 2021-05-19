@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_01_104330) do
+ActiveRecord::Schema.define(version: 2021_05_19_142105) do
 
   create_table "boris_cam_images", force: :cascade do |t|
     t.string "filename"
@@ -89,6 +89,31 @@ ActiveRecord::Schema.define(version: 2019_03_01_104330) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable"
+  end
+
+  create_table "menu_areas", force: :cascade do |t|
+    t.string "description"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "menu_items", force: :cascade do |t|
+    t.integer "menu_id"
+    t.integer "index"
+    t.string "caption"
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["menu_id"], name: "index_menu_items_on_menu_id"
+  end
+
+  create_table "menus", force: :cascade do |t|
+    t.string "title"
+    t.integer "menu_area_id"
+    t.integer "index"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["menu_area_id"], name: "index_menus_on_menu_area_id"
   end
 
   create_table "ratrace_posts", force: :cascade do |t|
