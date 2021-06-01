@@ -7,6 +7,12 @@ class EditMenus::MenuItemsController < EditMenusController
     redirect_to edit_edit_menus_area_menu_path(@area, @menu)
   end
 
+  def destroy
+    if @item.destroy!
+      redirect_to edit_edit_menus_area_menu_path(@area, @menu) 
+    end
+  end
+
 
   private
 

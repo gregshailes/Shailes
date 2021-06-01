@@ -8,6 +8,8 @@
   <% @area.menus.each do |menu| %>
     <li>
       <%= link_to(menu.title, edit_edit_menus_area_menu_path(@area, menu)) %>
+      |
+      <%= link_to('Remove', edit_menus_area_menu_path(@area, menu), method: :delete, data: { confirm: 'Sure?' }) %>
     </li>
   <% end %>
 </ul>
