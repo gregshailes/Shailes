@@ -17,4 +17,7 @@
       <%= link_to('Remove', edit_menus_area_menu_menu_item_path(@area, @menu, item), method: :delete, data: { confirm: 'Sure?' }) %>
     </li>
   <% end %>
+  <li>
+    <%= link_to('Add...', new_edit_menus_area_menu_menu_item_path(@area, @menu)) %>
+  </li>
 </ul>

@@ -13,6 +13,9 @@ class EditMenus::MenusController < EditMenusController
     end
   end
 
+  def new
+
+  end
 
   private
 
