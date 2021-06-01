@@ -26,6 +26,15 @@ Rails.application.routes.draw do
     end
   end
 
+
+  namespace :edit_menus do
+    resources :areas do
+      resources :menus do
+        resources :menu_items
+      end
+    end
+  end
+
   namespace :diary do
     root to: 'entries#index'
     resources :entries

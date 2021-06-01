@@ -1,0 +1,14 @@
+<h1>
+  <%= @area.description %> | <%= @menu.title %> | <%= @item.caption %>
+</h1>
+
+<%= link_to('< Back', edit_edit_menus_area_menu_path(@area, @menu)) %>
+
+<%= simple_form_for(@item, url: edit_menus_area_menu_menu_item_path(@area, @menu, @item)) do |f| %>
+  <%= f.input(:caption) %>
+  <%= f.input(:url) %>
+  <%= f.submit %>
+<% end %>
+
+<%= link_to('Remove', edit_menus_area_menu_menu_item_path(@area, @menu, @item), method: :destroy) %>
+

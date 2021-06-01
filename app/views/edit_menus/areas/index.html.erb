@@ -1,0 +1,10 @@
+<h1>
+  Edit Menus
+</h1>
+
+<%= link_to('< Back', root_path) %>
+
+<ul>
+  <li><%= link_to('Personal', edit_menus_area_path(MenuArea.home)) %></li>
+  <li><%= link_to('Work', edit_menus_area_path(MenuArea.work)) %></li>
+</ul>

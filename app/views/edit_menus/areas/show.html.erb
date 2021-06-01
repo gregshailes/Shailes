@@ -1,0 +1,13 @@
+<h1>
+  <%= @area.description %>
+</h1>
+
+<%= link_to('< Back', edit_menus_areas_path) %>
+
+<ul>
+  <% @area.menus.each do |menu| %>
+    <li>
+      <%= link_to(menu.title, edit_edit_menus_area_menu_path(@area, menu)) %>
+    </li>
+  <% end %>
+</ul>

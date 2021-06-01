@@ -1,0 +1,18 @@
+<h1>
+  <%= @area.description %> | <%= @menu.title %>
+</h1>
+
+<%= link_to('< Back', edit_menus_area_path(@area)) %>
+
+<%= simple_form_for(@menu, url: edit_menus_area_menu_path(@area, @menu)) do |f| %>
+  <%= f.input(:title) %>
+  <%= f.submit %>
+<% end %>
+
+<ul>
+  <% @menu.menu_items.each do |item| %>
+    <li>
+      <%= link_to(item.caption || '-- break --', edit_edit_menus_area_menu_menu_item_path(@area, @menu, item)) %>
+    </li>
+  <% end %>
+</ul>
