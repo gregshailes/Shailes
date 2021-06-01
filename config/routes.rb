@@ -28,6 +28,7 @@ Rails.application.routes.draw do
 
 
   namespace :edit_menus do
+    root to: 'areas#index'
     resources :areas do
       resources :menus do
         resources :menu_items

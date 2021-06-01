@@ -8,6 +8,12 @@ class ApplicationController < ActionController::Base
     current_user && current_user.is_greg?
   end
 
+  def authenticate_greg!
+    unless is_greg?
+      redirect_to root_path
+    end
+  end
+
   def authenticate_admin!
     unless is_admin?
       redirect_to new_user_session_path

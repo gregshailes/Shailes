@@ -4,9 +4,12 @@
   </h2>
   <p>
     <% if current_user.is_greg? %>
-      <%= link_to 'Work Site', work_path %>
-      |
-      <%= link_to 'Personal Site', home_path %>
+      <div>
+        <%= link_to 'Work Site', work_path %>
+        |
+        <%= link_to 'Personal Site', home_path %>
+      </div>
+      <%= link_to 'Edit Menus', edit_menus_root_path %>
     <% else %>
       Still nothing to see here, I'm afraid.
     <% end %>
