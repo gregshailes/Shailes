@@ -2,9 +2,21 @@
   Edit Menus
 </h1>
 
-<%= link_to('< Back', root_path) %>
+<%= link_to('Home', root_path) %>
 
 <ul>
-  <li><%= link_to('Personal', edit_menus_area_path(MenuArea.home)) %></li>
-  <li><%= link_to('Work', edit_menus_area_path(MenuArea.work)) %></li>
+  <li>
+    Personal
+    | 
+    <%= link_to('Edit', edit_menus_area_path(MenuArea.home)) %>
+    |
+    <%= link_to('View', home_path) %>
+  </li>
+  <li>
+    Work
+    |
+    <%= link_to('Edit', edit_menus_area_path(MenuArea.work)) %>
+    |
+    <%= link_to('View', work_path) %>
+  </li>
 </ul>
