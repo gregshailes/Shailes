@@ -28,7 +28,7 @@ nav {
   & > ul {
     display: flex;
     flex-direction: row;
-    justify-content: left;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     align-items: top;
     list-style: none;
@@ -91,30 +91,28 @@ ul li ul li.break {
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.4)
 }
 
-form#f {
-  width: 80%;
-  text-align: left;
+div#google {
   @media screen and (max-width: $break_width) {
     display: none;
   }
+  border-bottom: 0.1rem solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0.2rem 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(0.5rem);
+  box-shadow: 0 0.2rem 0.5rem 0.5rem rgba(0, 0, 0, 0.2);
 }
 
 input.googleSearch {
-  padding: 0.6rem;
-  margin-left: 2.6rem;
-  border: 0.1rem solid rgba(255, 255, 255, 0.4);
-  box-shadow: 0 0.2rem 0.5rem 0.5rem rgba(0, 0, 0, 0.4);
-  border-radius: 0.4rem;
-  background-color: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(0.5rem);
-
+  padding: 1rem 0 2rem 0;
+  margin: 0;
+  width: 100%;
+  border: none;
+  background: none;
   box-sizing: border-box;
   height: 1.6rem;
   color: $text-box-ink;
   display: block;
-  width: 100%;
   font-size: 1.5rem;
-  padding: 1.4rem 0;
   outline: none;
   text-indent: 2rem;
   text-shadow: 2px 2px 4px black;
