@@ -13,12 +13,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <main id="homepage">
+      <%= yield %>
 
-    <footer>
-      <%= link_to 'Home', root_path %>
-      <%= link_to 'Edit Menus', edit_menus_root_path %>
-      <%= link_to 'Sign out', destroy_user_session_path, method: 'DELETE' %>
-    </footer>
+      <footer>
+        <%= link_to 'Home', root_path %>
+        <%= link_to 'Edit Menus', edit_menus_root_path %>
+        <%= link_to 'Sign out', destroy_user_session_path, method: 'DELETE' %>
+      </footer>
+    </main>
   </body>
 </html>
