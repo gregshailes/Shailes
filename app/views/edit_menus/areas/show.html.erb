@@ -1,18 +1,24 @@
 <h1>
-  <%= @area.description %>
+  <span><%= @area.description %></span>
 </h1>
 
-<%= link_to('< Back', edit_menus_areas_path) %>
+<%= link_to('Back', edit_menus_areas_path) %>
 
-<ul>
-  <% @area.menus.each do |menu| %>
+<div class="editable-items">
+  <ul>
+    <% @area.menus.each do |menu| %>
+      <li>
+        <span><%= menu.title %></span>
+        <div class="options">
+          <%= link_to('Edit', edit_edit_menus_area_menu_path(@area, menu)) %>
+          <%= link_to('Remove', edit_menus_area_menu_path(@area, menu), class: 'remove', method: :delete, data: { confirm: 'Sure?' }) %>
+        </div>
+      </li>
+    <% end %>
     <li>
-      <%= link_to(menu.title, edit_edit_menus_area_menu_path(@area, menu)) %>
-      |
-      <%= link_to('Remove', edit_menus_area_menu_path(@area, menu), method: :delete, data: { confirm: 'Sure?' }) %>
+      <div class="add">
+        <%= link_to('Add New Menu…', new_edit_menus_area_menu_path(@area)) %>
+      </div>
     </li>
-  <% end %>
-  <li>
-    <%= link_to('Add…', new_edit_menus_area_menu_path(@area)) %>
-  </li>
-</ul>
+  </ul>
+</div>

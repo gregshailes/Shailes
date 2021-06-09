@@ -1,22 +1,24 @@
 <h1>
-  Edit Menus
+  <span>Edit Menus</span>
 </h1>
 
 <%= link_to('Home', root_path) %>
 
-<ul>
-  <li>
-    Personal
-    | 
-    <%= link_to('Edit', edit_menus_area_path(MenuArea.home)) %>
-    |
-    <%= link_to('View', home_path) %>
-  </li>
-  <li>
-    Work
-    |
-    <%= link_to('Edit', edit_menus_area_path(MenuArea.work)) %>
-    |
-    <%= link_to('View', work_path) %>
-  </li>
-</ul>
+<div class="editable-items">
+  <ul>
+    <li>
+      <span>Personal</span>
+      <div class="options">
+        <%= link_to('Edit', edit_menus_area_path(MenuArea.home)) %>
+        <%= link_to('View', home_path) %>
+      </div>
+    </li>
+    <li>
+      <span>Work</span>
+      <div class="options">
+        <%= link_to('Edit', edit_menus_area_path(MenuArea.work)) %>
+        <%= link_to('View', work_path) %>
+      </div>
+    </li>
+  </ul>
+</div>

@@ -1,8 +1,8 @@
 <h1>
-  <%= @area.description %> | <%= @menu.title %> | New Item
+  <span><%= @area.description %></span><span><%= @menu.title %></span><span>New Item</span>
 </h1>
 
-<%= link_to('< Back', edit_menus_area_menu_path(@area, @menu)) %>
+<%= link_to('Back', edit_edit_menus_area_menu_path(@area, @menu)) %>
 
 <%= simple_form_for(@item, url: edit_menus_area_menu_menu_items_path(@area, @menu)) do |f| %>
   <%= f.input(:caption) %>

@@ -1,23 +1,29 @@
 <h1>
-  <%= @area.description %> | <%= @menu.title %>
+  <span><%= @area.description %></span><span><%= @menu.title %></span>
 </h1>
 
-<%= link_to('< Back', edit_menus_area_path(@area)) %>
+<%= link_to('Back', edit_menus_area_path(@area)) %>
 
 <%= simple_form_for(@menu, url: edit_menus_area_menu_path(@area, @menu)) do |f| %>
   <%= f.input(:title) %>
-  <%= f.submit %>
+  <%= f.submit 'Update menu title' %>
 <% end %>
 
-<ul>
-  <% @menu.menu_items.each do |item| %>
+<div class="editable-items">
+  <ul>
+    <% @menu.menu_items.each do |item| %>
+      <li>
+        <span><%= item.caption || '-- break --' %></span>
+        <div class="options">
+          <%= link_to('Edit', edit_edit_menus_area_menu_menu_item_path(@area, @menu, item)) %>
+          <%= link_to('Remove', edit_menus_area_menu_menu_item_path(@area, @menu, item), class: 'remove', method: :delete, data: { confirm: 'Sure?' }) %>
+        </div>
+      </li>
+    <% end %>
     <li>
-      <%= link_to(item.caption || '-- break --', edit_edit_menus_area_menu_menu_item_path(@area, @menu, item)) %>
-      |
-      <%= link_to('Remove', edit_menus_area_menu_menu_item_path(@area, @menu, item), method: :delete, data: { confirm: 'Sure?' }) %>
+      <div class="add">
+        <%= link_to('Add New Menu Item…', new_edit_menus_area_menu_menu_item_path(@area, @menu)) %>
+      </div>
     </li>
-  <% end %>
-  <li>
-    <%= link_to('Add...', new_edit_menus_area_menu_menu_item_path(@area, @menu)) %>
-  </li>
-</ul>
+  </ul>
+</div>
