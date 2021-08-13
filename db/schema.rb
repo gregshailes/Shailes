@@ -127,7 +127,6 @@ ActiveRecord::Schema.define(version: 2021_08_13_120347) do
 
   create_table "task_sessions", force: :cascade do |t|
     t.integer "task_id"
-    t.datetime "start_at"
     t.datetime "end_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

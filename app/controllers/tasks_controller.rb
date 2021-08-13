@@ -12,7 +12,7 @@ class TasksController < ApplicationController
     @new_task = Task.new(new_task_params.merge(task_owner: current_user))
     if @new_task.valid?
       @tasks.active.each(&:stop_work)
-      @new_task.sessions << Task::Session.new(start_at: Time.current)
+      @new_task.sessions << Task::Session.new
       @new_task.save!
       redirect_to(tasks_path)
     else

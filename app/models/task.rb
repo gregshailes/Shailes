@@ -20,11 +20,15 @@ class Task < ApplicationRecord
 
   def start_work
     stop_work
-    self.sessions.create(start_at: Time.current)
+    self.sessions.create
   end
 
   def stop_work
     sessions.active.update_all(end_at: Time.current)
+  end
+
+  def total_duration
+    sessions.map(&:duration).reduce(0, :+)
   end
 
 end

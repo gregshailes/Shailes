@@ -20,7 +20,7 @@
     <h2>Active</h2>
     <% @tasks.active.each do |task| %>
       <p>
-        <%= task.name %> |
+        <%= task.name %> (<%= task.total_duration %>) |
         <%= link_to 'Stop', task_stop_work_path(task) %> |
         <%= link_to 'Complete', task_complete_path(task) %>
       </p>
@@ -31,7 +31,7 @@
     <h2>Inactive</h2>
     <% @tasks.inactive.each do |task| %>
       <p>
-        <%= task.name %> |
+        <%= task.name %> (<%= task.total_duration %>) |
         <%= link_to 'Start', task_start_work_path(task) %> |
         <%= link_to 'Complete', task_complete_path(task) %>
       </p>
@@ -42,7 +42,7 @@
     <h2>Complete</h2>
     <% @tasks.complete.each do |task| %>
       <p>
-        <%= task.name %>
+        <%= task.name %> (<%= task.total_duration %>)
       </p>
     <% end %>
   <% end %>
