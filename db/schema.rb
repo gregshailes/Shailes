@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_19_142105) do
+ActiveRecord::Schema.define(version: 2021_08_13_120347) do
 
   create_table "boris_cam_images", force: :cascade do |t|
     t.string "filename"
@@ -123,6 +123,25 @@ ActiveRecord::Schema.define(version: 2021_05_19_142105) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_ratrace_posts_on_user_id"
+  end
+
+  create_table "task_sessions", force: :cascade do |t|
+    t.integer "task_id"
+    t.datetime "start_at"
+    t.datetime "end_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["task_id"], name: "index_task_sessions_on_task_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "task_owner_type"
+    t.integer "task_owner_id"
+    t.string "name"
+    t.integer "status", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["task_owner_type", "task_owner_id"], name: "index_tasks_on_task_owner"
   end
 
   create_table "users", force: :cascade do |t|

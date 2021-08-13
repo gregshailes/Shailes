@@ -26,6 +26,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :tasks, only: [:index, :create] do
+    get :start_work
+    get :stop_work
+    get :complete
+  end
 
   namespace :edit_menus do
     root to: 'areas#index'
