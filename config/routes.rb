@@ -26,10 +26,13 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :tasks, only: [:index, :create] do
+  resources :tasks, only: [:index, :new, :create] do
     get :start_work
     get :stop_work
     get :complete
+    collection do
+      get :archive
+    end
   end
 
   namespace :edit_menus do

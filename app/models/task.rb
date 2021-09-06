@@ -10,7 +10,6 @@ class Task < ApplicationRecord
 
   scope :in_progress, -> { where(status: :in_progress) }
   scope :complete, -> { where(status: :complete) }
-
   scope :active, -> { in_progress.joins(:sessions).where(sessions: { end_at: nil }) }
   scope :inactive, -> { in_progress - active }
 

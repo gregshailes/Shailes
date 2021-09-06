@@ -1,15 +1,14 @@
+<%= render partial: 'tabs' %>
+
 <h1>Tasks</h1>
 
 <% if @active_task %>
-  <h1>Working on: <%= @active_task.name %></h1>
-  <%= link_to 'STOP WORK!', task_stop_work_path(@active_task) %>
+  <section id='active-task'>
+    <h1>Working on: <%= @active_task.name %></h1>
+    <%= link_to 'Stop', task_stop_work_path(@active_task) %>
+  </section>
 <% else %>
   <h1>Currently Idle</h1>
-<% end %>
-
-<%= simple_form_for @new_task do |f| %>
-  <%= f.input :name, placeholder: 'New Task', autofocus: true %>
-  <%= f.submit %>
 <% end %>
 
 <% if @tasks.empty? %>
@@ -34,15 +33,6 @@
         <%= task.name %> (<%= task.total_duration %>) |
         <%= link_to 'Start', task_start_work_path(task) %> |
         <%= link_to 'Complete', task_complete_path(task) %>
-      </p>
-    <% end %>
-  <% end %>
-
-  <% if @tasks.complete.any? %>
-    <h2>Complete</h2>
-    <% @tasks.complete.each do |task| %>
-      <p>
-        <%= task.name %> (<%= task.total_duration %>)
       </p>
     <% end %>
   <% end %>
