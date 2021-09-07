@@ -1,8 +1,8 @@
 <%= render partial: 'tabs' %>
 
-<h1>New Task</h1>
+<h1>Edit Task</h1>
 
 <%= simple_form_for task do |f| %>
-  <%= f.input :name, placeholder: 'New Task', autofocus: true %>
+  <%= f.input :name, autofocus: true %>
   <%= f.submit %>
 <% end %>

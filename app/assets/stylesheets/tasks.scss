@@ -1,0 +1,21 @@
+@import "imports/base";
+@import "imports/colours/tasks";
+@import "imports/app_styles";
+@import "imports/modals";
+
+
+body {
+  background-color: $blue;
+  padding: 3em;
+  box-sizing: border-box;
+}
+
+main {
+  max-width: 50em;
+  padding: 2em;
+  margin: 0 auto;
+  background-color: $lightblue;
+  border-radius: 1em;
+  border: 3px solid $black;
+  box-shadow: 0 0.4em 0.8em 0.8em rgba(0, 0, 0, 0.2);
+}
