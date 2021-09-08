@@ -123,6 +123,7 @@ GEM
     marcel (1.0.1)
     method_source (1.0.0)
     mini_mime (1.1.1)
+    mini_portile2 (2.6.1)
     minitest (5.14.4)
     monetize (1.9.4)
       money (~> 6.12)
@@ -135,7 +136,8 @@ GEM
       railties (>= 3.0)
     msgpack (1.4.2)
     nio4r (2.5.8)
-    nokogiri (1.12.4-x86_64-linux)
+    nokogiri (1.12.4)
+      mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
     omniauth (1.9.1)
       hashie (>= 3.4.6)
@@ -307,7 +309,7 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
-  x86_64-linux
+  ruby
 
 DEPENDENCIES
   bootsnap (>= 1.4.4)
@@ -343,4 +345,4 @@ RUBY VERSION
    ruby 3.0.1p64
 
 BUNDLED WITH
-   2.2.27
+   2.2.16
