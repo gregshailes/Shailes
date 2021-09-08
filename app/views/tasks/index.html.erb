@@ -1,6 +1,4 @@
-<%= render partial: 'tabs' %>
-
-<h1>Tasks</h1>
+<%= render 'tabs', current: :tasks %>
 
 <% if active_task %>
   <section id='active-task'>

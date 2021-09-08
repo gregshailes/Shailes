@@ -1,6 +1,4 @@
-<%= render partial: 'tabs' %>
-
-<h1>Task Archive</h1>
+<%= render 'tabs', current: :archive %>
 
 <% if archived_tasks.any? %>
   <% archived_tasks.each do |task| %>

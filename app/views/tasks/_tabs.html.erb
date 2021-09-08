@@ -1,5 +1,5 @@
 <nav class="tabs">
-  <%= link_to('Tasks', tasks_path, class: request.path == tasks_path ? 'current' : nil) %>
-  <%= link_to('Add Task', new_task_path, class: request.path == new_task_path ? 'current' : nil) %>
-  <%= link_to('Archive', archive_tasks_path, class: request.path == archive_tasks_path ? 'current' : nil) %>
+  <%= link_to('Tasks', tasks_path, class: current == :tasks ? 'current' : nil) %>
+  <%= link_to('Add Task', new_task_path, class: current == :add_task ? 'current' : nil) %>
+  <%= link_to('Archive', archive_tasks_path, class: current == :archive ? 'current' : nil) %>
 </nav>

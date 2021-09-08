@@ -8,27 +8,23 @@ class TasksController < ApplicationController
 
   layout 'tasks'
 
-  def new; end
-
   def create
     task.update(task_params)
     if task.valid?
       tasks.active.each(&:stop_work)
       task.save!
       task.start_work
-      render :index
+      redirect_to :tasks
     else
       render :new
     end
   end
 
-  def edit; end
-
   def update
     task.update(task_params)
     if task.valid?
       task.save
-      render :index
+      redirect_to :tasks
     else
       render :edit
     end
@@ -37,18 +33,18 @@ class TasksController < ApplicationController
 
   def start_work
     task.start_work
-    render :index
+    redirect_to :tasks
   end
 
   def stop_work
     tasks.active.each(&:stop_work)
-    render :index
+    redirect_to :tasks
   end
 
   def complete
     task.stop_work if task.active?
     task.complete!
-    render :index
+    redirect_to :tasks
   end
 
   def archive; end
