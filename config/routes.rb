@@ -26,10 +26,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :tasks, only: [:index, :new, :create] do
-    get :start_work
-    get :stop_work
-    get :complete
+  resources :tasks do
+    member do
+      get :start_work
+      get :stop_work
+      get :complete
+    end
     collection do
       get :archive
     end

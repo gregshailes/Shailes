@@ -1,0 +1,39 @@
+@import "imports/base";
+@import "imports/colours/tasks";
+@import "imports/app_styles";
+@import "imports/modals";
+
+
+body {
+  background-color: $blue;
+  padding: 3em;
+  box-sizing: border-box;
+}
+
+main {
+  max-width: 50em;
+  padding: 2em;
+  margin: 0 auto;
+  background-color: $background;
+  border-radius: 0.5em;
+  border: 2px solid $black;
+  box-shadow: 0 0.4em 0.8em 0.8em rgba(0, 0, 0, 0.2);
+}
+
+nav.tabs {
+  display: flex;
+  flex-direction: row;
+  border-bottom: 1px solid $darkblue;
+  a, a:visited, a:hover {
+    color: $black;
+    text-decoration: none;
+    display: block;
+    padding: 0 1em 0.2em 1em;
+  }
+  a:hover {
+    background-color: white;
+  }
+  a.current {
+    border-bottom: 3px solid $darkblue;
+  }
+}

@@ -1,38 +1,36 @@
-<%= render partial: 'tabs' %>
+<%= render 'tabs', current: :tasks %>
 
-<h1>Tasks</h1>
-
-<% if @active_task %>
+<% if active_task %>
   <section id='active-task'>
-    <h1>Working on: <%= @active_task.name %></h1>
-    <%= link_to 'Stop', task_stop_work_path(@active_task) %>
+    <h1>Working on: <%= active_task.name %> since <%= active_task.sessions.last.created_at.strftime('%d/%m/%Y %H:%M') %></h1>
+    <%= link_to 'Stop', stop_work_task_path(active_task) %>
   </section>
 <% else %>
   <h1>Currently Idle</h1>
 <% end %>
 
-<% if @tasks.empty? %>
+<% if tasks.empty? %>
   <h2>You ain't got no tasks yet</h2>
 <% else %>
-
-  <% if @tasks.active.any? %>
-    <h2>Active</h2>
-    <% @tasks.active.each do |task| %>
+  <h2>Tasks in progress</h2>
+  <% if tasks.active.any? %>
+    <% tasks.active.each do |task| %>
       <p>
         <%= task.name %> (<%= task.total_duration %>) |
-        <%= link_to 'Stop', task_stop_work_path(task) %> |
-        <%= link_to 'Complete', task_complete_path(task) %>
+        <%= link_to 'Edit', edit_task_path(task) %> |
+        <%= link_to 'Stop', stop_work_task_path(task) %> |
+        <%= link_to 'Complete', complete_task_path(task) %>
       </p>
     <% end %>
   <% end %>
 
-  <% if @tasks.inactive.any? %>
-    <h2>Inactive</h2>
-    <% @tasks.inactive.each do |task| %>
+  <% if tasks.inactive.any? %>
+    <% tasks.inactive.each do |task| %>
       <p>
         <%= task.name %> (<%= task.total_duration %>) |
-        <%= link_to 'Start', task_start_work_path(task) %> |
-        <%= link_to 'Complete', task_complete_path(task) %>
+        <%= link_to 'Edit', edit_task_path(task) %> |
+        <%= link_to 'Start', start_work_task_path(task) %> |
+        <%= link_to 'Complete', complete_task_path(task) %>
       </p>
     <% end %>
   <% end %>

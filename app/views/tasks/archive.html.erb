@@ -1,9 +1,7 @@
-<%= render partial: 'tabs' %>
+<%= render 'tabs', current: :archive %>
 
-<h1>Task Archive</h1>
-
-<% if @archived_tasks.any? %>
-  <% @archived_tasks.each do |task| %>
+<% if archived_tasks.any? %>
+  <% archived_tasks.each do |task| %>
     <p>
       <%= task.name %> (<%= task.total_duration %>)
     </p>

@@ -1,0 +1,6 @@
+<%= render 'tabs', current: :tasks %>
+
+<%= simple_form_for task do |f| %>
+  <%= f.input :name, autofocus: true %>
+  <%= f.submit %>
+<% end %>
