@@ -12,27 +12,36 @@
 <% if tasks.empty? %>
   <h2>You ain't got no tasks yet</h2>
 <% else %>
-  <h2>Tasks in progress</h2>
-  <% if tasks.active.any? %>
-    <% tasks.active.each do |task| %>
-      <p>
-        <%= task.name %> (<%= task.total_duration %>) |
-        <%= link_to 'Edit', edit_task_path(task) %> |
-        <%= link_to 'Stop', stop_work_task_path(task) %> |
-        <%= link_to 'Complete', complete_task_path(task) %>
-      </p>
-    <% end %>
-  <% end %>
-
-  <% if tasks.inactive.any? %>
-    <% tasks.inactive.each do |task| %>
-      <p>
-        <%= task.name %> (<%= task.total_duration %>) |
-        <%= link_to 'Edit', edit_task_path(task) %> |
-        <%= link_to 'Start', start_work_task_path(task) %> |
-        <%= link_to 'Complete', complete_task_path(task) %>
-      </p>
-    <% end %>
-  <% end %>
+  <table>
+    <thead>
+      <tr>
+        <th colspan="4">
+          Tasks in progress
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if tasks.active.any? %>
+        <% tasks.active.each do |task| %>
+          <tr>
+            <td><%= link_to 'Stop', stop_work_task_path(task) %></td>
+            <td><%= task.name %> (<%= task.total_duration %>)</td>
+            <td><%= link_to 'Edit', edit_task_path(task) %></td>
+            <td><%= link_to 'Complete', complete_task_path(task) %></td>
+          </tr>
+        <% end %>
+      <% end %>
+      <% if tasks.inactive.any? %>
+        <% tasks.inactive.each do |task| %>
+          <tr>
+            <td><%= link_to 'Start', start_work_task_path(task) %></td>
+            <td><%= task.name %> (<%= task.total_duration %>)</td>
+            <td><%= link_to 'Edit', edit_task_path(task) %></td>
+            <td><%= link_to 'Complete', complete_task_path(task) %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
 
 <% end %>
