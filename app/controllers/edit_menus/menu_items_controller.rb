@@ -20,8 +20,13 @@ class EditMenus::MenuItemsController < EditMenusController
 
   def create
     @item = MenuItem.new(menu: @menu)
-    @item.caption = item_params[:caption]
-    @item.url = item_params[:url]
+    if item_params[:caption] == ''
+      @item.caption = nil
+      @item.url = nil
+    else
+      @item.caption = item_params[:caption]
+      @item.url = item_params[:url]
+    end
     if @item.save!
       redirect_to edit_edit_menus_area_menu_path(@area, @menu) 
     end
