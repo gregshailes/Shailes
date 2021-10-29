@@ -34,8 +34,8 @@ class Finances::TransactionsController < Finances::BaseController
   end
 
   def destroy
-    @account.update!(reconciled_balance: @transaction.amount * -1) if @transaction.reconciled
     if @transaction.destroy
+      @account.update!(reconciled_balance: @account.reconciled_balance - @transaction.amount) if @transaction.reconciled
       redirect_to finances_account_path(@account)
     end
   end
