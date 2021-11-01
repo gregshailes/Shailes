@@ -1,13 +1,17 @@
 module ApplicationHelper
 
+  def banana
+  	puts 'banana'
+  end
+
   def markdown(text)
-   renderer.markdown(text).to_html.html_safe
+    renderer.render(text).html_safe
   end
 
   private
 
   def renderer
-    @renderer ||= Redcarpet::Markdown.new(Redcarpet::Render::XHTML.new(render_options = {}), extensions = {:no_intra_emphasis})
+    @renderer ||= Redcarpet::Markdown.new(Redcarpet::Render::XHTML.new(render_options = {}), extensions = {no_intra_emphasis: true})
   end
 
 end
