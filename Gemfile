@@ -34,6 +34,7 @@ gem 'devise'
 gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'comma'
+gem 'redcarpet'
 ## END: Custom Gems required by this project
 
 
