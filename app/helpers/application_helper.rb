@@ -1,9 +1,5 @@
 module ApplicationHelper
 
-  def banana
-  	puts 'banana'
-  end
-
   def markdown(text)
     renderer.render(text).html_safe
   end
