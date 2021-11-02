@@ -1,6 +1,7 @@
 $white:      #FFFFFF;
 $green:      #00887A;
 $pink:       #FFCCBC;
+$red:        #990040;
 $lightblue:  #D3E3FC;
 $blue:       #77A6F7;
 $black:      darken($blue, 50%);
@@ -20,7 +21,7 @@ $footer_color: $white;
 $button_background: $green;
 $button_color: $white;
 
-$warning_button_background: $pink;
+$warning_button_background: $red;
 $warning_button_color: $white;
 
 $body_color: $black;

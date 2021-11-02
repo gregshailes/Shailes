@@ -2,3 +2,33 @@
 @import "imports/colours/finances";
 @import "imports/app_styles";
 @import "imports/modals";
+
+main > h1 {
+  font-size: 1.2em;
+}
+main > h2 {
+  font-size: 1.1em;
+}
+main > h3 {
+  font-size: 1em;
+}
+
+main > form.simple_form div.input textarea, main > form.simple_form div.input input {
+  background-color: white;
+  border: 1px solid $rule_color;
+}
+
+code {
+  border: 1px solid $rule-color;
+  padding: 0 0.25em;
+  color: gray;
+}
+
+pre {
+  border: 1px solid $rule-color;
+  padding: 2em;
+  & > code {
+    border: none;
+    padding: 0;
+  }
+}

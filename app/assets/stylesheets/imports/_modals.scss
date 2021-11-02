@@ -10,14 +10,17 @@ div.confirm {
   }
   &--buttons {
     padding-bottom: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
     a {
       background-color: $button_background;
       opacity: 0.8;
       color: $button_color;
-      display: inline-block;
       text-decoration: none;
       padding: 0.6em 1.2em;
-      margin-left: 0px;
+      margin: 0 0.5em;
       text-align: center;
       line-height: 1em;
       vertical-align: middle;

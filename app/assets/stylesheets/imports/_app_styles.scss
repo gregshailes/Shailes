@@ -1,5 +1,5 @@
 
-$width: 30%;
+$width: 275px;
 $body_margin: 2em;
 $break_width: 700px;
 $mobile_header_height: 2.5em;
@@ -202,6 +202,12 @@ main {
   & div.buttons {
     padding-top: 1em;
     width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    & .command-button {
+      margin-right: 1em;
+    }
   }
 
 }
@@ -232,7 +238,6 @@ main {
 }
 
 .warning {
-  float: left;
   background-color: $warning_button_background;
 }
 
