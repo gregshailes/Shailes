@@ -13,7 +13,7 @@
   <ul>
     <% @menu.menu_items.each do |item| %>
       <li>
-        <span><%= item.caption || '-- break --' %></span>
+        <span><%= item.index %> - <%= item.caption || '-- break --' %></span>
         <div class="options">
           <%= link_to('Edit', edit_edit_menus_area_menu_menu_item_path(@area, @menu, item)) %>
           <%= link_to('Remove', edit_menus_area_menu_menu_item_path(@area, @menu, item), class: 'remove', method: :delete, data: { confirm: 'Sure?' }) %>
