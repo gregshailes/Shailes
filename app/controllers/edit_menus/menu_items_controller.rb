@@ -5,9 +5,9 @@ class EditMenus::MenuItemsController < EditMenusController
 
   def update
     if item_params[:caption] == ''
-      @item.update_columns(caption: nil, url: nil)
+      @item.update_columns(caption: nil, url: nil, index: item_params[:index])
     else
-      @item.update_columns(caption: item_params[:caption], url: item_params[:url])
+      @item.update_columns(caption: item_params[:caption], url: item_params[:url], index: item_params[:index])
     end
     redirect_to edit_edit_menus_area_menu_path(@area, @menu)
   end

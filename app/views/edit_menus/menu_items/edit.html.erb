@@ -7,5 +7,6 @@
 <%= simple_form_for(@item, url: edit_menus_area_menu_menu_item_path(@area, @menu, @item)) do |f| %>
   <%= f.input(:caption) %>
   <%= f.input(:url) %>
+  <%= f.input(:index) %>
   <%= f.submit %>
 <% end %>
