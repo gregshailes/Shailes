@@ -41,7 +41,7 @@ class EditMenus::MenuItemsController < EditMenusController
 
 
   def item_params
-    params.require(:menu_item).permit(:caption, :url)
+    params.require(:menu_item).permit(:caption, :url, :index)
   end
 
 end
