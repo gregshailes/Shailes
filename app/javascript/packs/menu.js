@@ -6,10 +6,12 @@ document.addEventListener("turbolinks:load", function() {
 
 });
 
-function showMenu() {
+function showMenu(e) {
+  e.preventDefault();
+  e.stopPropagation();
   if($menu.hasClass('show')) {
-    $menu.addClass('show');
-  } else {
     $menu.removeClass('show');
+  } else {
+    $menu.addClass('show');
   }
 }
