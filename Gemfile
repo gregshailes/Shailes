@@ -35,12 +35,11 @@ gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'comma'
 gem 'redcarpet'
+gem 'pg'
 ## END: Custom Gems required by this project
 
 
 group :development, :test do
-  # Use sqlite3 as the database for Active Record
-  gem 'sqlite3', '~> 1.4'
   ## BEGIN: Custom Gems required by this project
   gem 'pry-rails'
   gem 'dotenv-rails'
@@ -72,10 +71,6 @@ group :test do
   gem 'rexml'
   ## END: Custom Gems required by this project
 
-end
-
-group :production do
-  gem 'pg'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
