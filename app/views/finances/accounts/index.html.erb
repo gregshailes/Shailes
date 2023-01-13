@@ -6,7 +6,7 @@
           <%= account.name %>
         </div>
         <div class="account-balance">
-          <%= account.reconciled_balance %>
+          <%= account.reconciled_balance + account.opening_balance %>
         </div>
     </div>
     <% end %>
