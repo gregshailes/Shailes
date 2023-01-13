@@ -2,12 +2,6 @@ class Finances::AccountsController < Finances::BaseController
 
   include Finances::AccountsHelper
 
-  def index
-    if @accounts.primary.any?
-      redirect_to finances_account_path(@accounts.primary.first)
-    end
-  end
-
   def show
     @upcoming_bills = upcoming_bills(@account)
     @balance = (@account.opening_balance || 0)

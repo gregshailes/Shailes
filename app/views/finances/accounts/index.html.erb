@@ -1,7 +1,14 @@
-<h1>
-  <span>Accounts</span>No Primary Account
-</h1>
-<p>You need to set one of your accounts as the Primary account for its overview to appear here.</p>
-
-
-<%= link_to 'test confirmation', '#', data: { confirmation_message: 'Are you sure you want to delete this account?' }, class: 'command-button confirmation' %>
+<div id="accounts">
+  <% @accounts.each do |account| %>
+    <%= link_to finances_account_path(account) do %>
+      <div class="account">
+        <div class="account-name">
+          <%= account.name %>
+        </div>
+        <div class="account-balance">
+          <%= account.reconciled_balance %>
+        </div>
+    </div>
+    <% end %>
+  <% end %>
+</table>
