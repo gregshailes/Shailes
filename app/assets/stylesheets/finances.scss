@@ -1,28 +1,194 @@
 @import "imports/base";
 @import "imports/colours/finances";
-@import "imports/app_styles";
 @import "imports/modals";
 
 html {
   font-size: 14px;
-  @media (max-width: $break_width) {
-    font-size: 22px;
-  }
 }
 
 
+/***************************************************************/
+$body_margin: 2em;
+$break_width: 700px;
+$mobile_header_height: 2.5em;
+$footer_height: 2.3em;
+$mobile_footer_height: 2em;
+
+@import "font-awesome";
+
+html {
+  font-size: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: $body-color;
+  background-color: $background;
+  font-family: $base_font;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  min-width: 300px;
+}
+
+.displayed {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+
+main {
+  margin: 25px;
+  & h1 {
+    font-size: 1.2em;
+    & span {
+      font-weight: normal;
+      border-right: 1px solid $rule-color;
+      padding-right: 0.5em;
+      margin-right: 0.5em;
+    }
+  }
+  & div.buttons {
+    padding-top: 1em;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    & .command-button {
+      margin-right: 1em;
+    }
+  }
+
+}
+
+.command-button {
+  background-color: $button_background;
+  opacity: 0.8;
+  color: $button_color;
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.6em 1.2em;
+  margin-left: 0px;
+  text-align: center;
+  line-height: 1em;
+  vertical-align: middle;
+  border: none;
+  border-radius: 0.4em;
+  transition: opacity 0.2s;
+  font-size: 1em;
+  font-weight: normal;
+  font-family: $base_font;
+  &:hover {
+    opacity: 1;
+  }
+  &:visited {
+    color: $button_color;
+  }
+}
+
+.warning {
+  background-color: $warning_button_background;
+}
+
+div.input {
+  & label {
+    display: block;
+    font-weight: bold;
+    padding: 18px 0 0 0;
+  }
+  & input {
+    height: 1.8em;
+    border: none;
+    width: 100%;
+  }
+  & textarea {
+    height: 300px;
+    width: 100%;
+    resize: none;
+    border: none;
+  }
+}
+
+div#md-editor {
+  padding-top: 0em;
+  line-height: 0.2em;
+  div.btn-toolbar {
+    div.btn-group {
+      display: inline;
+      margin-right: 0.8em;
+      .pull-right {
+        margin-right: none;
+      }
+    }
+  }
+
+  & textarea {
+    height: 300px;
+    width: 100%;
+    resize: none;
+    border: none;
+  }
+}
+
+div.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: $footer_height;
+  background-color: $footer_background;
+  color: $footer_color;
+  padding: 0px;
+  font-size: 0.9em;
+  vertical-align: middle;
+  @media (max-width: $break_width) {
+    margin-left: 0;
+    height: $mobile_footer_height;
+  }
+  &-text {
+    height: 20px;
+    padding: 7px 15px;
+    display: inline-block;
+    @media (min-width: $break_width) {
+      &:before {
+        content: 'Signed in as '
+      }
+    }
+  }
+  &-links {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    background-color: $menu_background;
+    height: $footer_height;
+    & a {
+      display: block;
+      float: left;
+      padding: 7px 15px;
+      text-decoration: none;
+      transition: background-color 0.75s;
+      color: white;
+      &:visited {
+        color: white;
+      }
+      &:hover {
+        background-color: $menu_highlight;
+      }
+    }
+  }
+}
+
+p#notice {
+  animation: fade-away 0.5s linear 3s forwards;
+}
+/***************************************************************/
 input, textarea, select, button {
   font-family: $base_font;
   font-size: 1em;
-}
-
-main h1 {
-  @media (max-width: $break_width) {
-    margin-bottom: 0;
-    & span {
-      display: none;
-    }
-  }
 }
 
 a {
@@ -64,9 +230,6 @@ a {
 
 form.simple_form {
   padding: 1em;
-  @media (max-width: $break_width) {
-    padding: 0;
-  }
   & input.string, input.numeric {
     background-color: $background;
     border: 1px solid $rule_color;
@@ -169,21 +332,10 @@ div.transactions-table {
   display: table;
   border-bottom: 1px solid $rule_color;
   margin-bottom: 1em;
-  @media (max-width: $break_width) {
-    display: block;
-    margin: 0;
-    padding: 0;
-  }
 }
 
 .table-row {
   display: table-row;
-  @media (max-width: $break_width) {
-    display: block;
-    height: 3em;
-    position: relative;
-
-  }
   span {
     display: table-cell;
     padding: 0 15px;
@@ -197,36 +349,6 @@ div.transactions-table {
     &.deposit {
       font-weight: bold;
     }
-    @media (max-width: $break_width) {
-      margin: 0;
-      padding: 0;
-      position: absolute;
-      &.date {
-        width: 70%;
-        top: 10px;
-        left: 0;
-        font-size: 0.8em;
-      }
-      &.balance {
-        width: 30%;
-        top: 10px;
-        right: 0;
-        font-size: 0.8em;
-      }
-      &.description {
-        width: 70%;
-        bottom: 0;
-        left: 0;
-        font-weight: bold;
-        overflow: hidden;
-      }
-      &.amount {
-        width: 30%;
-        bottom: 0;
-        right: 0;
-        font-weight: bold;
-      }
-    }
   }
 }
 
@@ -235,9 +357,6 @@ div.table-row-header {
   font-weight: bold;
   span {
     border-bottom: 1px solid $rule_color;
-  }
-  @media (max-width: $break_width) {
-    display: none;
   }
 }
 
@@ -265,29 +384,16 @@ a.table-row {
       content: "\f00c"
     }
   }
-  @media (max-width: $break_width) {
-    border-top: 1px solid $menu_background;
-  }
   &:nth-child(odd) {
-    @media (min-width: $break_width) {
-      background-color: darken($background, 6%);
-    }
     &:hover {
       background-color: $menu_background;
     }
-  }
-  @media (max-width: $break_width) {
-    margin: 0;
-    padding: 0;
   }
 }
 
 div#accounts {
   max-width: 15em;
   font-size: 1.5em;
-  @media (max-width: $break_width) {
-    font-size: 1em;
-  }
   & div.account {
     padding: 0.5em 1em;
     border-bottom: 1px solid gray;

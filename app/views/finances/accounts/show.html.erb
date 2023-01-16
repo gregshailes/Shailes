@@ -3,6 +3,14 @@
 <h1>
   <span><%= @account.name %></span>Transactions
 </h1>
+
+<ul>
+  <li><%= link_to 'Add Transaction', new_finances_account_transaction_path(@account) %></li>
+  <li><%= link_to 'Edit', edit_finances_account_path(@account) %></li>
+  <li><%= link_to 'Transfer', new_finances_account_transfer_path(@account) %></li>
+  <li><%= link_to 'Bills', finances_account_bills_path(@account) %></li>
+</ul>
+
 <% if @transactions.any? || @upcoming_bills.any? %>
   <div class='transactions-table'>
 

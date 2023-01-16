@@ -1,9 +1,3 @@
-<div class='new-entry-menu-item'>
-  <% if @account && @account.persisted? %>
-    <%= link_to 'Add Transaction', new_finances_account_transaction_path(@account) %>
-  <% end %>
-</div>
-
 <ul class='menu'>
   <% if @account %>
     <% if @accounts.count > 1 %>
