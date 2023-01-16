@@ -281,3 +281,24 @@ a.table-row {
     padding: 0;
   }
 }
+
+div#accounts {
+  max-width: 15em;
+  font-size: 1.5em;
+  @media (max-width: $break_width) {
+    font-size: 1em;
+  }
+  & div.account {
+    padding: 0.5em 1em;
+    border-bottom: 1px solid gray;
+    display: flex;
+    justify-content: space-between;
+    & div.account-name {
+      font-weight: 600;
+    }
+    &:hover {
+      background: $header_background;
+      color: $header_color;
+    }
+  }
+}
