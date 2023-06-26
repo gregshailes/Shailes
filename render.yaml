@@ -1,6 +1,6 @@
 databases:
   - name: shailes
-    databaseName: shailes
+    databaseName: shailes_production
     user: shailes
 
 services:

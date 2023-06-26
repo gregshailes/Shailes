@@ -23,7 +23,4 @@ test:
 
 production:
   <<: *default
-  database: shailes_production
-  username: shailes
-  password: <%= ENV['SHAILES_DATABASE_PASSWORD'] %>
-  database_url: <%= ENV['DATABASE_URL'] %>
+  url: <%= ENV['DATABASE_URL'] %>
