@@ -3,7 +3,9 @@
 set -o errexit
 
 bundle install
-bundle exec rake db:migrate RAILS_ENV=production
 bundle exec rake assets:precompile
 bundle exec rake assets:clean
-
+bundle exec rake db:drop
+bundle exec rake db:create
+bundle exec rake db:schema:load
+bundle exec rake db:migrate
