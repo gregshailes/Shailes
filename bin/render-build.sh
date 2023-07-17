@@ -5,7 +5,7 @@ set -o errexit
 bundle install
 bundle exec rake assets:precompile
 bundle exec rake assets:clean
-bundle exec rake db:drop
-bundle exec rake db:create
-bundle exec rake db:schema:load
+puts 'seeding'
+bundle exec rake db:seed
+puts 'seeded'
 bundle exec rake db:migrate
