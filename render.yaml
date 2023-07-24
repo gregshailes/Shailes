@@ -7,7 +7,7 @@ services:
   - type: web
     name: shailes
     runtime: ruby
-    buildCommand: "./bin/renderbuild.sh"
+    buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
