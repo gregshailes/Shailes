@@ -1,5 +1,5 @@
 databases:
-  - name: shailes
+  - name: shailes_production
     databaseName: shailes_production
     user: shailes
 
@@ -7,12 +7,12 @@ services:
   - type: web
     name: shailes
     runtime: ruby
-    buildCommand: "./bin/render-build.sh"
+    buildCommand: "./bin/renderbuild.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
-          name: shailes
+          name: shailes_production
           property: connectionString
       - key: RAILS_MASTER_KEY
         sync: false
